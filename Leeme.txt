@@ -1,0 +1,23 @@
+
+Información:
+
+  - Al pinchar sobre un planeta se detiene su traslación.
+  - Al pasar por encima de un planeta o el Sol se indica
+    su nombre (esquina superior derecha).
+  - Se han incluido dos botones adicionales:
+    - '-V' : disminuye la velocidad de traslación de los planetas.
+    - '+V' : aumenta la velocidad de traslación de los planetas.
+
+  Al detener o aumentar y disminuir la velocidad de los planetas se
+  puede observan que dan saltos. Esto se debe a que calcula la
+  posición dado un instante de tiempo. No he conseguido mitigar este
+  efecto de ninguna forma, ni manipulando 'pauseTime'/'resumeTime',
+  ni manipulando 'Time', ni con ninguna otra cosa.
+
+  He puesto una "camara" apuntando a Venus pero x3dom no lo interpreta
+  correctamente y, entonces, a veces (cambiando con Re/AvPag) funciona
+  bien y otras no. Teóricamente está bien, o eso creo, ya que con otros
+  visores de archivos x3d (Vivaty player) funciona correctamente.
+  
+  Todos los planetas giran sobre su eje a la misma velocidad ya que solo
+  he utilizado un orientationInterpolator para todos.

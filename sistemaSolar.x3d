@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.1//EN" "http://www.web3d.org/specifications/x3d-3.1.dtd">
+<X3D profile='Immersive' version='3.1' xmlns:xsd='http://www.w3.org/2001/XMLSchema-instance' xsd:noNamespaceSchemaLocation='http://www.web3d.org/specifications/x3d-3.1.xsd'>
+  <head>
+    <meta content='Sistema Solar' name='title'/>
+    <meta content='Modelo del Sistema Solar con X3D.' name='description'/>
+    <meta content='Antonio Toro' name='creator'/>
+    <meta content='28 May 2013' name='created'/>
+    <meta content='03 June 2013' name='modified'/>
+    <meta content='http://X3dGraphics.com' name='reference'/>
+    <meta content='cc by-nc-sa' name='rights'/>
+    <meta content='X3D-Edit, https://savage.nps.edu/X3D-Edit' name='generator'/>
+    <meta content='cc by-nc-sa' name='license'/>
+  </head>
+  <Scene>
+    <NavigationInfo headlight='false' transitionType='"ANIMATE"' type='"EXAMINE"'/>
+    <Viewpoint description='camPrincipal' DEF='camPrincipal' orientation='-0.59028 0.76927 0.2445 0.987861' position='10 10 10'/>
+    <PointLight ambientIntensity='1'/>
+
+	<Background backUrl="resources/space_BK.jpg" bottomUrl="resources/space_DN.jpg" 
+                frontUrl="resources/space_FR.jpg" leftUrl="resources/space_LF.jpg" 
+                rightUrl="./resources/space_RT.jpg" topUrl="resources/space_UP.jpg">
+    </Background>
+	
+    <!--Sol-->
+    <Transform DEF='rotacionSol'>
+        <Shape DEF='Sol'>
+        <Sphere radius='1' solid='true' onmouseover="mostrarInfo('Sol');" onmouseout="ocultarInfo();"/>
+        <Appearance>
+        <ImageTexture url='"resources/sol.jpg"'/>
+        <Material diffuseColor='.8 .2 .2' ambientIntensity='1.0'/>
+        </Appearance>
+        </Shape>
+    </Transform>
+    <!--Mercurio-->
+    <Transform DEF='traslacionMercurio'>
+        <Transform DEF='distanciaMercurio' translation="2 0 0">
+            <Transform DEF='rotacionMercurio'>
+                <Shape DEF='Mercurio'>
+                <Sphere radius='.095' solid='true' 
+				 onclick="pararReanudarAnimacion('intervaloTrasMercurio');" onmouseover="mostrarInfo('Mercurio');" onmouseout="ocultarInfo();"/>
+                <Appearance>
+                <Material diffuseColor='.5 .5 .5'/>
+                <ImageTexture url='"resources/mercurio.jpg"'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+        </Transform>
+    </Transform>
+    <!--Venus-->
+    <Transform DEF='traslacionVenus'>
+        <Transform DEF='distanciaVenus' translation="2.8 0 0">
+            <Viewpoint description='CamaraVenus' orientation='-0.747 -0.624 -0.231 1.05' position='-1.81 3.12 2.59'/>
+            <Transform DEF='rotacionVenus'>
+                <Shape DEF='Venus'>
+                <Sphere radius='.125' solid='true' 
+				 onclick="pararReanudarAnimacion('intervaloTrasVenus');" onmouseover="mostrarInfo('Venus');" onmouseout="ocultarInfo();"/>
+                <Appearance>
+                <Material diffuseColor='.5 .2 .2'/>
+                <ImageTexture url='"resources/venus.jpg"'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+        </Transform>
+    </Transform>
+    <!--Tierra-->
+    <Transform DEF='traslacionTierra'>
+        <Transform DEF='distanciaTierra' translation="3.6 0 0">
+            <Transform DEF='rotacionTierra'>
+                <Shape DEF='Tierra'>
+                <Sphere radius='.125' solid='true' 
+				 onclick="pararReanudarAnimacion('intervaloTrasTierra');" onmouseover="mostrarInfo('Tierra');" onmouseout="ocultarInfo();"/>
+                <Appearance>
+                <Material diffuseColor='.2 .2 .5'/>
+                <ImageTexture url='"resources/tierra.jpg"'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+            <!--Luna-->
+            <Transform DEF='traslacionLuna'>
+                <Transform DEF='distanciaLuna' translation="0.3 0 0">
+                    <Transform DEF='rotacionLuna'>
+                        <Shape DEF='Luna'>
+                        <Sphere radius='.03' solid='true'/>
+                        <Appearance>
+                        <Material diffuseColor='.5 .5 .5'/>
+                        <ImageTexture url='"resources/luna.jpg"'/>
+                        </Appearance>
+                        </Shape>
+                    </Transform>
+                </Transform>
+            </Transform>
+        </Transform>
+    </Transform>
+    <!--Marte-->
+    <Transform DEF='traslacionMarte'>
+        <Transform DEF='distanciaMarte' translation="4.4 0 0">
+            <Transform DEF='rotacionMarte'>
+                <Shape DEF='Marte'>
+                <Sphere radius='.09' solid='true' 
+				 onclick="pararReanudarAnimacion('intervaloTrasMarte');" onmouseover="mostrarInfo('Marte');" onmouseout="ocultarInfo();"/>
+                <Appearance>
+                <Material diffuseColor='.8 .2 .2'/>
+                <ImageTexture url='"resources/marte.jpg"'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+            <!--Phobos-->
+            <Transform DEF='traslacionPhobos'>
+                <Transform DEF='distanciaPhobos' translation="0.25 0 0">
+                    <Transform DEF='rotacionPhobos'>
+                        <Shape DEF='Phobos'>
+                        <Sphere radius='.035' solid='true'/>
+                        <Appearance>
+                        <Material diffuseColor='.5 .5 .5'/>
+                        <ImageTexture url='"resources/phobos.jpg"'/>
+                        </Appearance>
+                        </Shape>
+                    </Transform>
+                </Transform>
+            </Transform>
+            <!--Deimos-->
+            <Transform DEF='traslacionDeimos'>
+                <Transform DEF='distanciaDeimos' translation="0.35 0 0">
+                    <Transform DEF='rotacionDeimos'>
+                        <Shape DEF='Deimos'>
+                        <Sphere radius='.02' solid='true'/>
+                        <Appearance>
+                        <Material diffuseColor='.5 .5 .5'/>
+                        <ImageTexture url='"resources/deimos.jpg"'/>
+                        </Appearance>
+                        </Shape>
+                    </Transform>
+                </Transform>
+            </Transform>
+        </Transform>
+    </Transform>
+    <!--Jupiter-->
+    <Transform DEF='traslacionJupiter'>
+        <Transform DEF='distanciaJupiter' translation="6.0 0 0">
+            <Transform DEF='rotacionJupiter'>
+                <Shape DEF='Jupiter'>
+                <Sphere radius='.3' solid='true' 
+				 onclick="pararReanudarAnimacion('intervaloTrasJupiter');" onmouseover="mostrarInfo('Jupiter');" onmouseout="ocultarInfo();"/>
+                <Appearance>
+                <Material diffuseColor='.5 .5 .0'/>
+                <ImageTexture url='"resources/jupiter.jpg"'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+            <!--Ganimedes-->
+            <Transform DEF='traslacionGanimedes'>
+                <Transform DEF='distanciaGanimedes' translation="0.6 0 0">
+                    <Transform DEF='rotacionGanimedes'>
+                        <Shape DEF='Ganimedes'>
+                        <Sphere radius='.05' solid='true'/>
+                        <Appearance>
+                        <Material diffuseColor='.5 .5 .5'/>
+                        <ImageTexture url='"resources/ganimedes.jpg"'/>
+                        </Appearance>
+                        </Shape>
+                    </Transform>
+                </Transform>
+            </Transform>
+            <!--Io-->
+            <Transform DEF='traslacionIo'>
+                <Transform DEF='distanciaIo' translation="0.4 0 0">
+                    <Transform DEF='rotacionIo'>
+                        <Shape DEF='Io'>
+                        <Sphere radius='.03' solid='true'/>
+                        <Appearance>
+                        <Material diffuseColor='.5 .5 .5'/>
+                        <ImageTexture url='"resources/io.jpg"'/>
+                        </Appearance>
+                        </Shape>
+                    </Transform>
+                </Transform>
+            </Transform>
+            <!--Europa-->
+            <Transform DEF='traslacionEuropa'>
+                <Transform DEF='distanciaEuropa' translation="0.5 0 0">
+                    <Transform DEF='rotacionEuropa'>
+                        <Shape DEF='Europa'>
+                        <Sphere radius='.03' solid='true'/>
+                        <Appearance>
+                        <Material diffuseColor='.5 .5 .5'/>
+                        <ImageTexture url='"resources/europa.jpg"'/>
+                        </Appearance>
+                        </Shape>
+                    </Transform>
+                </Transform>
+            </Transform>
+            <!--Calisto-->
+            <Transform DEF='traslacionCalisto'>
+                <Transform DEF='distanciaCalisto' translation="0.7 0 0">
+                    <Transform DEF='rotacionCalisto'>
+                        <Shape DEF='Calisto'>
+                        <Sphere radius='.04' solid='true'/>
+                        <Appearance>
+                        <Material diffuseColor='.5 .5 .5'/>
+                        <ImageTexture url='"resources/calisto.jpg"'/>
+                        </Appearance>
+                        </Shape>
+                    </Transform>
+                </Transform>
+            </Transform>
+        </Transform>
+    </Transform>
+    <!--Saturno-->
+    <Transform DEF='traslacionSaturno'>
+        <Transform DEF='distanciaSaturno' translation="7.5 0 0" rotation='0 0 1 0.46'>
+            <Transform DEF='rotacionSaturno'>
+                <Shape DEF='Saturno'>
+                <Sphere radius='.25' solid='true' 
+				 onclick="pararReanudarAnimacion('intervaloTrasSaturno');" onmouseover="mostrarInfo('Saturno');" onmouseout="ocultarInfo();"/>
+                <Appearance>
+                <Material diffuseColor='.7 .7 .2'/>
+                <ImageTexture url='"resources/saturno.jpg"'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+            <Shape DEF='DiscoSaturno'>
+            <Appearance>
+                <Material transparency='0.6'/>
+                    <ImageTexture url='"resources/anillosaturno.jpg"'/>
+                </Appearance>
+                <Cone bottomRadius='.5' height='.001' bottom='false' side='true' solid='false'/>
+            </Shape>
+        </Transform>
+    </Transform>
+    <!--Urano-->
+    <Transform DEF='traslacionUrano'>
+        <Transform DEF='distanciaUrano' translation="8.8 0 0">
+            <Transform DEF='rotacionUrano'>
+                <Shape DEF='Urano'>
+                <Sphere radius='.2' solid='true' 
+				 onclick="pararReanudarAnimacion('intervaloTrasUrano');" onmouseover="mostrarInfo('Urano');" onmouseout="ocultarInfo();"/>
+                <Appearance>
+                <Material diffuseColor='.2 .2 .5'/>
+                <ImageTexture url='"resources/urano.jpg"'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+        </Transform>
+    </Transform>
+    <!--Neptuno-->
+    <Transform DEF='traslacionNeptuno'>
+        <Transform DEF='distanciaNeptuno' translation="10.1 0 0">
+            <Transform DEF='rotacionNeptuno'>
+                <Shape DEF='Neptuno'>
+                <Sphere radius='.15' solid='true' 
+				 onclick="pararReanudarAnimacion('intervaloTrasNeptuno');" onmouseover="mostrarInfo('Neptuno');" onmouseout="ocultarInfo();"/>
+                <Appearance>
+                <Material diffuseColor='.2 .2 .8'/>
+                <ImageTexture url='"resources/neptuno.jpg"'/>
+                </Appearance>
+                </Shape>
+            </Transform>
+        </Transform>
+    </Transform>
+    
+    <!--ANIMACION-->
+    <OrientationInterpolator DEF='rotarSol' key='0 0.25 0.5 0.75 1' keyValue='0 -1 0 0 0 -1 0 1.57075 0 -1 0 3.1415 0 -1 0 4.71225 0 -1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarMercurio' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarVenus' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarTierra' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarMarte' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarJupiter' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarSaturno' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarUrano' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarNeptuno' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarLuna' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarPhobos' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarDeimos' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarGanimedes' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarIo' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarEuropa' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='trasladarCalisto' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    <OrientationInterpolator DEF='rotarPlaneta' key='0 0.25 0.5 0.75 1' keyValue='0 1 0 0 0 1 0 1.57075 0 1 0 3.1415 0 1 0 4.71225 0 1 0 6.283'/>
+    
+	<TimeSensor id='intervaloSol'          DEF='intervaloSol'          cycleInterval='80' loop='true'/>
+    <TimeSensor id='intervaloTrasMercurio' DEF='intervaloTrasMercurio' cycleInterval='4'  loop='true'/>
+    <TimeSensor id='intervaloTrasVenus'    DEF='intervaloTrasVenus'    cycleInterval='8'  loop='true'/>
+    <TimeSensor id='intervaloTrasTierra'   DEF='intervaloTrasTierra'   cycleInterval='10' loop='true'/>
+    <TimeSensor id='intervaloTrasMarte'    DEF='intervaloTrasMarte'    cycleInterval='18' loop='true'/>
+    <TimeSensor id='intervaloTrasJupiter'  DEF='intervaloTrasJupiter'  cycleInterval='20' loop='true'/>
+    <TimeSensor id='intervaloTrasSaturno'  DEF='intervaloTrasSaturno'  cycleInterval='24' loop='true'/>
+    <TimeSensor id='intervaloTrasUrano'    DEF='intervaloTrasUrano'    cycleInterval='26' loop='true'/>
+    <TimeSensor id='intervaloTrasNeptuno'  DEF='intervaloTrasNeptuno'  cycleInterval='28' loop='true'/>
+    <TimeSensor DEF='intervaloTrasLuna'      cycleInterval='2'    loop='true'/>
+    <TimeSensor DEF='intervaloTrasPhobos'    cycleInterval='1'    loop='true'/>
+    <TimeSensor DEF='intervaloTrasDeimos'    cycleInterval='2'    loop='true'/>
+    <TimeSensor DEF='intervaloTrasGanimedes' cycleInterval='1.75' loop='true'/>
+    <TimeSensor DEF='intervaloTrasIo'        cycleInterval='1.25' loop='true'/>
+    <TimeSensor DEF='intervaloTrasEuropa'    cycleInterval='1'    loop='true'/>
+    <TimeSensor DEF='intervaloTrasCalisto'   cycleInterval='2'    loop='true'/>
+    <TimeSensor DEF='intervaloRotPlaneta'    cycleInterval='3'    loop='true'/>
+    
+    <ROUTE fromField='fraction_changed' fromNode='intervaloSol' toField='set_fraction' toNode='rotarSol'/><!--SOL-->
+    <ROUTE fromField='value_changed' fromNode='rotarSol' toField='rotation' toNode='rotacionSol'/><!--SOL-->
+    
+    <ROUTE fromField='fraction_changed' fromNode='intervaloRotPlaneta' toField='set_fraction' toNode='rotarPlaneta'/><!--Planetas-->
+    
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasMercurio' toField='set_fraction' toNode='trasladarMercurio'/><!--Mercurio-->
+    <ROUTE fromField='value_changed' fromNode='trasladarMercurio' toField='rotation' toNode='traslacionMercurio'/><!--Mercurio-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionMercurio'/><!--Mercurio-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasVenus' toField='set_fraction' toNode='trasladarVenus'/><!--Venus-->
+    <ROUTE fromField='value_changed' fromNode='trasladarVenus' toField='rotation' toNode='traslacionVenus'/><!--Venus-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionVenus'/><!--Venus-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasTierra' toField='set_fraction' toNode='trasladarTierra'/><!--Tierra-->
+    <ROUTE fromField='value_changed' fromNode='trasladarTierra' toField='rotation' toNode='traslacionTierra'/><!--Tierra-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionTierra'/><!--Tierra-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasMarte' toField='set_fraction' toNode='trasladarMarte'/><!--Marte-->
+    <ROUTE fromField='value_changed' fromNode='trasladarMarte' toField='rotation' toNode='traslacionMarte'/><!--Marte-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionMarte'/><!--Marte-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasJupiter' toField='set_fraction' toNode='trasladarJupiter'/><!--Jupiter-->
+    <ROUTE fromField='value_changed' fromNode='trasladarJupiter' toField='rotation' toNode='traslacionJupiter'/><!--Jupiter-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionJupiter'/><!--Jupiter-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasSaturno' toField='set_fraction' toNode='trasladarSaturno'/><!--Saturno-->
+    <ROUTE fromField='value_changed' fromNode='trasladarSaturno' toField='rotation' toNode='traslacionSaturno'/><!--Saturno-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionSaturno'/><!--Saturno-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasUrano' toField='set_fraction' toNode='trasladarUrano'/><!--Urano-->
+    <ROUTE fromField='value_changed' fromNode='trasladarUrano' toField='rotation' toNode='traslacionUrano'/><!--Urano-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionUrano'/><!--Urano-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasNeptuno' toField='set_fraction' toNode='trasladarNeptuno'/><!--Neptuno-->
+    <ROUTE fromField='value_changed' fromNode='trasladarNeptuno' toField='rotation' toNode='traslacionNeptuno'/><!--Neptuno-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionNeptuno'/><!--Neptuno-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasLuna' toField='set_fraction' toNode='trasladarLuna'/><!--Luna-->
+    <ROUTE fromField='value_changed' fromNode='trasladarLuna' toField='rotation' toNode='traslacionLuna'/><!--Luna-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionLuna'/><!--Luna-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasPhobos' toField='set_fraction' toNode='trasladarPhobos'/><!--Phobos-->
+    <ROUTE fromField='value_changed' fromNode='trasladarPhobos' toField='rotation' toNode='traslacionPhobos'/><!--Phobos-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionPhobos'/><!--Phobos-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasDeimos' toField='set_fraction' toNode='trasladarDeimos'/><!--Deimos-->
+    <ROUTE fromField='value_changed' fromNode='trasladarDeimos' toField='rotation' toNode='traslacionDeimos'/><!--Deimos-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionDeimos'/><!--Deimos-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasGanimedes' toField='set_fraction' toNode='trasladarGanimedes'/><!--Ganimedes-->
+    <ROUTE fromField='value_changed' fromNode='trasladarGanimedes' toField='rotation' toNode='traslacionGanimedes'/><!--Ganimedes-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionGanimedes'/><!--Ganimedes-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasIo' toField='set_fraction' toNode='trasladarIo'/><!--Io-->
+    <ROUTE fromField='value_changed' fromNode='trasladarIo' toField='rotation' toNode='traslacionIo'/><!--Io-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionIo'/><!--Io-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasEuropa' toField='set_fraction' toNode='trasladarEuropa'/><!--Europa-->
+    <ROUTE fromField='value_changed' fromNode='trasladarEuropa' toField='rotation' toNode='traslacionEuropa'/><!--Europa-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionEuropa'/><!--Europa-->
+    <ROUTE fromField='fraction_changed' fromNode='intervaloTrasCalisto' toField='set_fraction' toNode='trasladarCalisto'/><!--Calisto-->
+    <ROUTE fromField='value_changed' fromNode='trasladarCalisto' toField='rotation' toNode='traslacionCalisto'/><!--Calisto-->
+    <ROUTE fromField='value_changed' fromNode='rotarPlaneta' toField='rotation' toNode='rotacionCalisto'/><!--Calisto-->
+  </Scene>
+</X3D>
