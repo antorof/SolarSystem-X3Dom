@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Solarsystem-x3dom by antorof</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/antorof/SolarSystem-X3Dom">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/antorof/SolarSystem-X3Dom/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/antorof/SolarSystem-X3Dom/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Solarsystem-x3dom</h1>
+          <p>Solar System with X3Dom</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/antorof">antorof</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="solarsystem-x3dom" class="anchor" href="#solarsystem-x3dom"><span class="octicon octicon-link"></span></a>SolarSystem-X3Dom</h1>
+
+<p>Solar System implementation in <strong>X3D</strong> format. Viewed in web browser thanks to <strong>x3dom</strong>.</p>
+
+<p>Información:</p>
+
+<ul>
+<li>Al pinchar sobre un planeta se detiene su traslación.</li>
+<li>Al pasar por encima de un planeta o el Sol se indica
+su nombre (esquina superior derecha).</li>
+<li>
+<p>Se han incluido dos botones adicionales:</p>
+
+<ul>
+<li>'-V' : disminuye la velocidad de traslación de los planetas.</li>
+<li>'+V' : aumenta la velocidad de traslación de los planetas.</li>
+</ul>
+<p>Al detener o aumentar y disminuir la velocidad de los planetas se
+puede observan que dan saltos. Esto se debe a que calcula la
+posición dado un instante de tiempo. No he conseguido mitigar este
+efecto de ninguna forma, ni manipulando 'pauseTime'/'resumeTime',
+ni manipulando 'Time', ni con ninguna otra cosa.</p>
+
+<p>He puesto una "camara" apuntando a Venus pero x3dom no lo interpreta
+correctamente y, entonces, a veces (cambiando con Re/AvPag) funciona
+bien y otras no. Teóricamente está bien, o eso creo, ya que con otros
+visores de archivos x3d (Vivaty player) funciona correctamente.</p>
+
+<p>Todos los planetas giran sobre su eje a la misma velocidad ya que solo
+he utilizado un orientationInterpolator para todos.</p>
+</li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
