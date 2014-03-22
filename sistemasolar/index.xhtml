@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel='stylesheet' type='text/css' href='http://www.x3dom.org/x3dom/release/x3dom.css'></link>
+    <script type='text/javascript' src='http://www.x3dom.org/x3dom/release/x3dom.js'></script>
+
+	<title>Sistema Solar</title>
+	<meta name="creator"     content="Antonio Toro"/>
+	<meta name="description" content="Modelo del Sistema Solar en X3D visualizado mediante X3DOM"/>
+	<meta name="reference"   content="http://www.x3dom.org"/>
+	<meta name="generator"   content="X3D-Edit, https://savage.nps.edu/X3D-Edit"/>
+	<meta name='license'     content='http://creativecommons.org/licenses/'/>
+    <meta name='rights'      content='cc by-nc-sa'/>
+	<meta name="created"     content="28 May 2013"/>
+	<meta name="modified"    content="15 June 2013"/>
+	<link rel="shortcut icon" href="./icon.png" title="X3D"/>
+	
+	<style>
+		*{
+			//font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+			font-family: Verdana;
+		}
+		html {
+			//width:100%;height:100%;
+			margin:0;padding:0;
+		}
+		body {
+			margin:0;padding-left:10px;
+			//width:100%;height:100%;
+		}
+
+		#EmbeddedX3dScene {
+			width: 50%;
+			height: 50%;
+			border: none;
+			display: block;
+			position:relative;
+			//background:#000 url(http://www.x3dom.org/x3dom/example/texture/solarSystem/starsbg.png);
+		}
+
+		#toggler {
+			position: absolute;
+			float: left;
+			z-index: 1;
+			top: 0px;
+			left: 0px;
+			width: 80px;
+			height: 25px;
+			border: none;
+			background-color: #202021;
+			color: #ccc;
+		}
+		
+		#toggler:hover {
+			background-color:blue;
+			color: #fff;
+		}
+		
+		#botonMenos {
+			position: absolute;
+			float: left;
+			z-index: 1;
+			top: 25px;
+			left: 0px;
+			width: 40px;
+			height: 25px;
+			border: none;
+			background-color: #202021;
+			color: #ccc;
+		}
+		#botonMas {
+			position: absolute;
+			float: left;
+			z-index: 1;
+			top: 25px;
+			left: 40px;
+			width: 40px;
+			height: 25px;
+			border: none;
+			background-color: #202021;
+			color: #ccc;
+		}
+		
+		#botonMenos:hover {
+			background-color:red;
+			color: #fff;
+		}
+		#botonMas:hover {
+			background-color:green;
+			color: #fff;
+		}
+		
+		#info {
+			display: none;
+			opacity: 0.5;
+			background-color:#fff;
+			color:#000;
+			position: absolute;
+			float: left;
+			z-index: 1;
+			top: 0px;
+			right: 0px;
+			padding: 5px 10px;
+			margin: 2px;
+		}
+		
+	</style>
+	<script type="text/javascript"> 
+	/* <![CDATA[ */
+		var zoomed = false;
+		var timeoutInfo;
+		var estadoPlanetas = new Array(false,false,false,false,false,false,false,false);
+		var planetas = new Array("intervaloTrasMercurio",
+		                         "intervaloTrasVenus",
+		                         "intervaloTrasTierra",
+		                         "intervaloTrasMarte",
+		                         "intervaloTrasJupiter",
+		                         "intervaloTrasSaturno",
+		                         "intervaloTrasUrano",
+		                         "intervaloTrasNeptuno");
+		
+    	function toggle(button) {
+
+    		var new_size;
+    		var x3d_element;
+    		
+    		x3d_element = document.getElementById('EmbeddedX3dScene');
+
+    		title = document.getElementById('titulo')
+            body  = document.getElementById('body')
+            
+    		if (zoomed) {
+    			new_size = "50%";
+    			button.innerHTML = "Acercar";
+    			title.style.display = "block";
+    			body.style.padding = '0px 0px 0px 10px';
+    		} else {
+    			new_size = "100%";
+    			button.innerHTML = "Alejar";
+    			title.style.display = "none";
+    			body.style.padding = '0';
+    		}
+
+    		zoomed = !zoomed;
+
+    		x3d_element.style.width = new_size;
+    		x3d_element.style.height = new_size;
+    	}
+		
+		function pararReanudarAnimacion(id) {
+			indice = planetas.indexOf(id);
+			planetaParado = estadoPlanetas[indice];
+			
+			ts = document.getElementById('sistemaSolar__'+id);
+            ts=ts._x3domNode;
+			
+			/* No he conseguido que funcione sin dar saltos jugando
+			 * con "pauseTime", "resumeTime", ni "pause", ni cambiando
+			 * el "time"... ni nada, asi que lo he dejado con 
+			 * enable, que el codigo es mas simple */
+			ts._vf.enabled=planetaParado;
+			
+			estadoPlanetas[indice] = !estadoPlanetas[indice];
+		}
+		
+		function acelerar() {
+			for (var i=0; i<planetas.length; i++) {
+				ts = document.getElementById('sistemaSolar__'+planetas[i]);
+				ts=ts._x3domNode;
+				if(ts._vf.cycleInterval>1)
+					ts._vf.cycleInterval-=1;
+				else
+					ts._vf.cycleInterval*=0.9;
+			}
+		}
+		function decelerar() {
+			for (var i=0; i<planetas.length; i++) {
+				ts = document.getElementById('sistemaSolar__'+planetas[i]);
+				ts=ts._x3domNode;
+				if(ts._vf.cycleInterval>=1)
+					ts._vf.cycleInterval+=1;
+				else
+					ts._vf.cycleInterval/=0.9;
+			}
+		}
+		
+		function mostrarInfo(nombre) {
+			document.getElementById('info').style.display="block";
+			document.getElementById('info').innerHTML=nombre;
+			clearTimeout(timeoutInfo);
+		}
+		function ocultarInfo() {
+			timeoutInfo = setTimeout (
+				function() {document.getElementById('info').style.display="none";},
+				1500
+			);
+		}
+		
+	/* ]]> */
+	</script>
+</head>
+<body id="body">
+		<h1 id="titulo"> Sistema Solar </h1>
+		
+		<X3D  profile='Inmersive'
+		      id="EmbeddedX3dScene" showlog="false" showstat="false">
+			<button id="toggler" onclick="toggle(this);">Acercar</button>
+			<button id="botonMenos" onclick="decelerar();">-V</button>
+			<button id="botonMas" onclick="acelerar();">+V</button>
+			<div id="info"> </div>
+			<Scene>
+				<Inline nameSpaceName='sistemaSolar' url='"./sistemaSolar.x3d"'/>
+			</Scene>
+		</X3D>
+</body>
+</html>
